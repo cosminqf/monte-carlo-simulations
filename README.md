@@ -1,10 +1,10 @@
-# Analiza Efectului de Amplificare în Tenis prin Simulare Monte Carlo 
+# Analiza Efectului de Amplificare în Tenis prin Simulare Monte Carlo
 
 Acest proiect implementează o simulare stocastică (Monte Carlo) pentru a prezice rezultatele meciurilor de tenis, analizând modul în care **Efectul de Amplificare** transformă micile avantaje statistice de la nivel de punct în victorii clare la nivel de meci.
 
 ## Descriere
 
-Tenisul are un sistem de scor ierarhic și complex (Punct → Game → Set → Meci), ceea ce face dificilă calcularea analitică a probabilităților de victorie. Acest proiect rezolvă problema prin **Simulare Directă Monte Carlo**:
+Tenisul are un sistem de scor ierarhic și complex (Punct -> Game -> Set -> Meci), ceea ce face dificilă calcularea analitică a probabilităților de victorie. Acest proiect rezolvă problema prin **Simulare Directă Monte Carlo**:
 
 1.  Preia statistici reale ale jucătorilor (ATP) din fișiere CSV.
 2.  Simulează mii de meciuri punct cu punct.
@@ -33,13 +33,21 @@ Tenisul are un sistem de scor ierarhic și complex (Punct → Game → Set → M
 
 Proiectul se bazează pe ipoteza că un meci de tenis este o înlănțuire de evenimente Bernoulli.
 
-**1. Estimatorul Monte Carlo:**
-Probabilitatea estimată $\hat{p}$ după $N$ simulări este media aritmetică a rezultatelor $X_i$ (1=Victorie, 0=Înfrângere):
-$$ \hat{p} = \frac{1}{N} \sum_{i=1}^{N} X_i $$
+**1. Estimatorul Monte Carlo**
+Probabilitatea estimată (`p_hat`) după `N` simulări este media aritmetică a rezultatelor (`X_i`, unde 1=Victorie, 0=Înfrângere):
 
-**2. Calibrarea (Hoeffding):**
-Pentru a garanta o eroare $\epsilon = 0.01$ cu o încredere de 95% ($\alpha = 0.05$), numărul minim de simulări este calculat automat:
-$$ N \ge \frac{\ln(2/\alpha)}{2\epsilon^2} $$
+```math
+p_hat = (1 / N) * Σ X_i
+```
+
+**2. Calibrarea (Inegalitatea Hoeffding)**
+Pentru a garanta o eroare `ε = 0.01` (1%) cu o încredere de 95% (`α = 0.05`), numărul minim de simulări este calculat automat după formula:
+
+```math
+N >= ln(2 / α) / (2 * ε²)
+```
+
+*În cazul nostru, acest calcul rezultă în aproximativ 18.444 simulări necesare.*
 
 ## Instalare și Utilizare
 
