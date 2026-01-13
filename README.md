@@ -80,10 +80,3 @@ Scriptul generează un dashboard complet cu 3 grafice:
 1.  **Stânga-Sus (Convergența):** Arată cum probabilitatea se stabilizează pe măsură ce crește numărul de simulări.
 2.  **Dreapta-Sus (Amplificarea):** Arată cât de mult crește șansa de victorie la meci pentru fiecare procent câștigat în plus la serviciu.
 3.  **Jos (Rezultate):** Probabilitățile finale pe fiecare suprafață și cotele asociate.
-
-## 🤝 Contribuții
-
-Acest proiect a fost realizat în scop educațional pentru a demonstra puterea simulărilor stocastice în modelarea sportivă.
-
----
-*Autori: Danciu Cosmin-Alexandru & Popescu-Ilioniu Andrei*
